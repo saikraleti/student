@@ -1,0 +1,121 @@
+<br>
+<h1>CREATE STUDENT FORM</h1>
+<br>
+<div>
+ <form [formGroup]="allstudentForm">
+    <label>name:</label>
+    <input type="text" formControlName="name"><br><br>
+    <div class="errors" *ngIf="allstudentForm.get('name')?.touched && allstudentForm.get('name')?.invalid">
+      <p *ngIf="allstudentForm.get('name')?.errors?.['required']">Name is required</p>
+    </div>
+
+    <label>id:</label>
+    <input type="number" formControlName="id"><br><br>
+    <label>gender:</label>
+    <input type="radio" name="gender" formControlName="gender" value="male">
+    <label>male</label>
+    <input type="radio" name="gender" formControlName="gender" value="female">
+    <label>female</label><br><br>
+    <div class="errors" *ngIf="allstudentForm.get('gender')?.touched && allstudentForm.get('gender')?.invalid">
+      <p *ngIf="allstudentForm.get('gender')?.errors?.['required']">gender is required</p>
+    </div>
+
+    <label>mobile:</label>
+    <input type="number" formControlName="mobile"><br><br>
+    <div class="errors" *ngIf="allstudentForm.get('mobile')?.touched && allstudentForm.get('mobile')?.invalid">
+      <p *ngIf="allstudentForm.get('mobile')?.errors?.['required']">mobile is required</p>
+    </div>
+
+    <label>email:</label>
+    <input type="email" formControlName="email"><br><br>
+    <div class="errors" *ngIf="allstudentForm.get('email')?.touched && allstudentForm.get('email')?.invalid">
+      <p *ngIf="allstudentForm.get('email')?.errors?.['required']">email is mandatory</p>
+    </div>
+
+    <label>batch:</label>
+    <input type="date" formControlName="batch"><br><br>
+
+    <h1>Address:</h1>
+    <div formGroupName="address"><label>city:</label>
+    <input type="text" formControlName="city"><br><br>
+    <div class="errors" *ngIf="allstudentForm.get('address')?.get('city')?.touched && allstudentForm.get('address')?.get('city')?.invalid">
+      <p *ngIf="allstudentForm.get('address')?.get('city')?.errors?.['required']">city is mandatory</p>
+    </div>
+
+    <label>mandal:</label>
+    <input type="text" formControlName="mandal"><br><br>
+    <div class="errors" *ngIf="allstudentForm.get('address')?.get('mandal')?.touched && allstudentForm.get('address')?.get('mandal')?.invalid">
+      <p *ngIf="allstudentForm.get('address')?.get('mandal')?.errors?.['required']">mandal is mandatory</p>
+    </div>
+
+    <label>district:</label>
+    <input type="text" formControlName="district"><br><br>
+    <div class="errors" *ngIf="allstudentForm.get('address')?.get('district')?.touched && allstudentForm.get('address')?.get('district')?.invalid">
+      <p *ngIf="allstudentForm.get('address')?.get('district')?.errors?.['required']">district is mandatory</p>
+    </div>
+
+    <label>state:</label>
+    <input type="text" formControlName="state"><br><br>
+    <div class="errors" *ngIf="allstudentForm.get('address')?.get('state')?.touched && allstudentForm.get('address')?.get('state')?.invalid">
+      <p *ngIf="allstudentForm.get('address')?.get('state')?.errors?.['required']">state is mandatory</p>
+    </div>
+    
+    <label>pincode:</label>
+    <input type="number"  formControlName="pincode">
+    <div class="errors" *ngIf="allstudentForm.get('address')?.get('pincode')?.touched && allstudentForm.get('address')?.get('pincode')?.invalid">
+      <p *ngIf="allstudentForm.get('address')?.get('pincode')?.errors?.['required']">pin code is mandatory</p>
+    </div>
+   </div>
+
+    <h1>Education details:</h1>
+    <button class="btn btn-primary" (click)="add()">Add</button>
+    <div formArrayName="educations">
+      <div *ngFor="let education of educationFormArray.controls;let i=index">
+         <div formGroupName="{{i}}">
+            <label>qualification:</label>
+            <input type="text" formControlName="qualification"><br>
+            <label>year:</label>
+            <input type="text" formControlName="year"><br>
+            <label>percentage:</label>
+            <input type="text" formControlName="percentage"><br>
+            <div class="errors" *ngIf="educationFormArray.controls[i]?.get('percentage')?.touched && educationFormArray.controls[i]?.get('percentage')?.invalid">
+               <p *ngIf="educationFormArray.controls[i]?.get('percentage')?.errors?.['required']">percentage is mandatory</p>
+               <p *ngIf="educationFormArray.controls[i]?.get('percentage')?.errors?.['min']">percentage should be greater than 0</p>
+               <p *ngIf="educationFormArray.controls[i]?.get('percentage')?.errors?.['max']">percentage should be less than 100</p>
+            </div>
+
+            <button class="btn btn-danger" (click)="delete(i)">delete</button>
+         </div>
+      </div>
+    </div>
+    <h1>company:</h1>
+    <div formGroupName="company">
+      <label>name:</label>
+    <input type="text" formControlName="companyname"><br><br>
+    <label>location:</label>
+    <input type="text" formControlName="location"><br><br>
+    <label>package:</label>
+    <input type="text" formControlName="package"><br><br>
+    <label>offerdate:</label>
+    <input type="date" formControlName="offerDate"><br><br>
+   </div>
+    <label>sourceType:</label>
+    <label>Direct</label>
+    <input type="radio" name="sourcetype" formControlName="sourcetype" value="direct">
+    <label>refer</label>
+    <input type="radio" name="sourcetype" formControlName="sourcetype" value="refer"><br><br>
+    <!-- <label>REferral name:</label>
+    <input type="text" formControlName="Referralname"><br><br> -->
+    <div *ngIf="allstudentForm.get('sourcetype')?.value=='direct'">
+      <label>Direct:</label>&nbsp;
+      <label>Social  Media:</label>&nbsp;<input type="radio" value="social media" name="direct" formControlName="direct">&nbsp;
+      <label>Office:</label>&nbsp;<input type="radio" value="office" name="direct" formControlName="direct">
+  </div>
+  <br><br>
+  <div *ngIf="allstudentForm.get('sourcetype')?.value=='refer'">
+      <label>referalName:</label>&nbsp;
+      <input type="text" formControlName="referalName">
+  </div>
+    <button class="btn btn-success" (click)="submit()">submit</button>
+ </form>
+</div>

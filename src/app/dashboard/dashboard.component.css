@@ -1,0 +1,41 @@
+.parent{
+    height: 100vh;
+    width: 100vw;
+    background-color: blue;
+    display: flex;
+}
+.child1{
+    background-color: gray;
+    height:100%;
+    width: 25%;
+    text-align: center;
+}
+.i{
+    border-radius: 50%;
+}
+.b{
+    background-color: greenyellow;
+    height: 40px;
+    width: 30%;
+    color: white;
+    border: 1px solid yellowgreen;
+    border-radius: 10%;
+}
+.p{
+    height: 30%;
+}
+.q{
+    height: 45%;
+}
+.o{
+    color: yellow;
+    width: 80%;
+    border: 1px solid yellow;
+}
+.child2{
+    padding-left: 30px;
+    background-color: beige;
+    height: 100%;
+    width: 75%;
+    overflow: auto;
+}

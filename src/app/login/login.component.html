@@ -1,0 +1,20 @@
+<div class="parent ">
+    <div class="child">
+         <form [formGroup]="loginForm">
+            <h1>LOG IN </h1>
+            <input type="email" placeholder="enter email" class="a" >
+            <br><br>
+            <input type="password" placeholder="enter password" class="b">
+             <div class="error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+        <p *ngIf="loginForm.get('password')?.errors?.['required']">password is required</p>
+        <p *ngIf="loginForm.get('password')?.errors?.['pattern']">At least one upper case,one lower case,one special character,one number</p>
+    </div>
+            <br><br>
+            <input type="checkbox">
+            <label class="d">Remember password</label>
+       
+            <br><br>
+            <button class="c"  (click)="submit()">SIGN IN</button>
+        </form>
+    </div>
+</div>

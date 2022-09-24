@@ -1,0 +1,95 @@
+<input [(ngModel)]="term">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<button class="btn btn-primary" (click)="filter()">search</button>
+<br>
+<label>column</label>
+<select [(ngModel)]="column">
+    <option >ID</option>
+    <option>avatar</option>
+    <option >name</option>
+    <option >gender</option>
+    <option >phone</option>
+    <option>Batch</option>
+    <option>From</option>
+    <option>Companyname</option>
+    <option>Packages</option>
+    <option>Direct</option>
+    <option>activity</option>
+    <option>details</option>
+    <option>Edit</option> 
+    <option>sourceType</option> 
+</select>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label>order</label>
+<select [(ngModel)]="order">
+    <option></option>
+    <option value="asc">asc</option>
+    <option value="desc">desc</option>
+</select>
+
+<button class="btn btn-success" (click)="sort()" >sort</button>
+<br>
+<label>Page no.</label>
+<select [(ngModel)]="pageno">
+    <option></option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>delete</option>
+</select>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<label>limit</label>
+<select [(ngModel)]="limit">
+    <option>10</option>
+    <option>20</option>
+    <option>30</option>
+    <option>40</option>
+</select>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button class="btn btn-success" (click)="page()">page</button>
+<br>
+<!-- {{allstudents|json}} -->
+
+<table class="table table-dark">
+    <thead>
+     <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>Gender</th>
+        <th>Phone</th>
+        <th>Batch</th>
+        <th>From</th>
+        <th>Companyname</th>
+        <th>Packages</th>
+        <th>sourceType</th>
+        <th>Direct</th>
+        <th>activity</th>
+        <th>Details</th>
+        <th>action</th>
+      
+     </tr>
+    </thead>
+    <tbody>
+       <tr *ngFor="let allstudent of allstudents">
+        <td>{{allstudent.id}}</td>
+        <td>{{allstudent.name}}</td>
+        <td>{{allstudent.gender}}</td>
+        <td>{{allstudent.mobile}}</td>
+        <td>{{allstudent.batch}}</td>
+        <td>{{allstudent.address?.district}}-{{allstudent.address?.state}}</td>
+        <td>{{allstudent.company?.companyname}}</td>
+        <td>{{allstudent.company?.package}}</td>
+        <td>{{allstudent.sourcetype}}</td>
+        <td>{{allstudent.direct}}</td>
+        <td><button class="btn btn-danger" (click)="delete(allstudent.id)">DELETE</button></td>
+        <td><button class="btn btn-success" (click)="View(allstudent.id)">VIEW</button></td>
+        <td><button class="btn btn-success" (click)="edit(allstudent.id)">EDIT</button></td>
+        
+       </tr>
+    </tbody>
+</table>

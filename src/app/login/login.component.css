@@ -1,0 +1,36 @@
+.parent{
+    height: 100vh;
+    width: 100vw;
+    background-color:blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.child{
+    background-color: white;
+    height: 50%;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px black;
+    text-align: center;
+}
+.a{
+    width: 80%;
+    height: 35px;
+    border-radius: 9%;
+}
+.b{
+    width: 80%;
+    height: 35px;
+    border-radius: 9%;
+}
+.c{
+    width: 80%;
+    height: 35px;
+    background-color: purple;
+    color: white;
+    border-radius: 9%;
+}
+.d{
+    padding-right: 230px;
+}

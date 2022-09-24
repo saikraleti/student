@@ -1,0 +1,31 @@
+
+<h1>studentdetails</h1>
+<p>name:{{studentdetails.name}}</p>
+<p>id:{{studentdetails.id}}</p>
+<p>avatar:{{studentdetails.avatar}}</p>
+<p>gender:{{studentdetails.gender}}</p>
+<p>mobile:{{studentdetails.mobile}}</p>
+<p>email:{{studentdetails.email}}</p>
+<p>batch:{{studentdetails.batch}}</p>
+<h1>address:</h1>
+<p>city:{{studentdetails.address.city}}</p>
+<p>mandal:{{studentdetails.address.mandal}}</p>
+<p>district:{{studentdetails.address.district}}</p>
+<p>state:{{studentdetails.address.state}}</p>
+<p>pincode:{{studentdetails.address.pincode}}</p>
+<p>qualification:{{studentdetails.Education.qualification}}</p>
+<p>year:{{studentdetails.Education.year}}</p>
+<p>percentage:{{studentdetails.Education.percentage}}</p> 
+<h1>company:</h1>
+<p>namee:{{studentdetails.company.companyname}}</p>
+<p>location:{{studentdetails.company.location}}</p>
+<p>package:{{studentdetails.company.package}}</p>
+<p>offerdate:{{studentdetails.company.offerDate}}</p>
+<p>sourceType:{{studentdetails.sourcetype}}</p>
+<p>Referralname:{{studentdetails.referalName}}</p>
+<h1>education details</h1>
+<div *ngFor="let education of studentdetails.educations">
+    <p>qualification:{{education.qualification}}</p>
+    <p>year:{{education.year}}</p>
+    <p>percentage:{{education.percentage}}</p>
+</div>

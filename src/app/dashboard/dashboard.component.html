@@ -1,0 +1,20 @@
+<div class="parent">
+    <div class="child1">
+      <div>
+        <br>
+        <img src="/assets/saikrishna.jpeg" height="180px" width="65%" class="i">
+        <h3>Sai Krishna</h3>
+        <p>saikrishnakraleti@gmail.com</p>
+      </div> 
+      <hr class="o">
+      <div class="q">
+         <div><h1 routerLink="allstudent">ALL STUDENTS</h1></div>
+         <DIV><H1  routerLink="createstudent">CREATE STUDENT</H1></DIV>
+      </div>
+      <HR class="o">
+        <DIV class="p"><button class="b" (click)="logout()">LOG OUT</button></DIV>
+    </div>
+     <div class="child2">
+          <router-outlet></router-outlet>
+     </div>
+</div>
